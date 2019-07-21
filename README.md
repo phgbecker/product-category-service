@@ -14,7 +14,7 @@ https://recruta.juno.com.br/ | opção backend
 
 - Ilustrar algumas competências como desenvolvedor de software, como boas práticas de OO, utilização de testes, cobertura de código, e também se divertir um pouco :)
 
-### API endpoints
+## API endpoints
 
 - Product
   - http://{host}/api/product/{id}
@@ -30,22 +30,26 @@ https://recruta.juno.com.br/ | opção backend
   - http://{host}/api/category/listAllByProduct/{id}
   - http://{host}/api/category/withPattern/{pattern}
 
-### Swagger API docs
+## Swagger API docs
 
 - http://{host}/api/v2/api-docs
 - http://{host}/api/swagger-ui.html
 
-### Testes
+## Testes
 
 - Execução de testes unitários
 
-    ```mvnn clean test```
+    ```
+    mvn clean test
+    ```
 
 - Execução de testes de integração
 
-    ```mvn clean test -P integration-tests```
+    ```
+    mvn clean test -P integration-tests
+    ```
 
-### Diagrama entidade-relacionamento
+## Diagrama entidade-relacionamento
 
 ![Diagrama entidade-relacionamento](ERD.png)
 
