@@ -1,7 +1,7 @@
 package br.com.juno.recruta.backend.service;
 
-import br.com.juno.recruta.backend.repository.BaseRepository;
 import br.com.juno.recruta.backend.entity.BaseEntity;
+import br.com.juno.recruta.backend.repository.BaseRepository;
 
 import java.util.List;
 import java.util.Optional;

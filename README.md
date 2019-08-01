@@ -12,23 +12,23 @@ https://recruta.juno.com.br/ | opção backend
 
 ### Motivações
 
-- Ilustrar algumas competências como desenvolvedor de software, como boas práticas de OO, utilização de testes, cobertura de código, e também se divertir um pouco :)
+- Ilustrar algumas competências como desenvolvedor de software, como boas práticas de OOP, utilização de testes, cobertura de código, SQL, e também se divertir um pouco :)
 
 ## API endpoints
 
 - Product
-  - http://{host}/api/product/{id}
-  - http://{host}/api/product/{id}/listAllCategories
-  - http://{host}/api/product/listAll
-  - http://{host}/api/product/listAllByCategory/{id}
-  - http://{host}/api/product/withPattern/{pattern}
+  - http://{host}/v1/products/
+  - http://{host}/v1/products/{id}
+  - http://{host}/v1/products/{id}/categories
+  - http://{host}/v1/products/category/{id}
+  - http://{host}/v1/products/pattern/{pattern}
 
 - Category
-  - http://{host}/api/category/{id}
-  - http://{host}/api/category/{id}/listAllProducts
-  - http://{host}/api/category/listAll
-  - http://{host}/api/category/listAllByProduct/{id}
-  - http://{host}/api/category/withPattern/{pattern}
+  - http://{host}/v1/categories/
+  - http://{host}/v1/categories/{id}
+  - http://{host}/v1/categories/{id}/products
+  - http://{host}/v1/categories/product/{id}
+  - http://{host}/v1/categories/pattern/{pattern}
 
 ## Swagger API docs
 

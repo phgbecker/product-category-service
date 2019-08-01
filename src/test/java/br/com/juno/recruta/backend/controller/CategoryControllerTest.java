@@ -28,7 +28,7 @@ public class CategoryControllerTest {
 
     @Test
     public void givenRequest_whenId_thenExpectEquals() throws Exception {
-        mockMvc.perform(get("/category/1"))
+        mockMvc.perform(get("/categories/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.name", is("Alimentos")));
@@ -36,13 +36,13 @@ public class CategoryControllerTest {
 
     @Test
     public void givenInvalidRequest_whenId_thenStatusIsNotFound() throws Exception {
-        mockMvc.perform(get("/category/-1"))
+        mockMvc.perform(get("/categories/-1"))
                 .andExpect(status().isNotFound());
     }
 
     @Test
     public void givenRequest_whenListAll_thenExpectEquals() throws Exception {
-        mockMvc.perform(get("/category/listAll"))
+        mockMvc.perform(get("/categories/"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(4)))
                 .andExpect(jsonPath("$[0].id", is(1)))
@@ -57,7 +57,7 @@ public class CategoryControllerTest {
 
     @Test
     public void givenRequest_whenListAllByProduct_thenExpectEquals() throws Exception {
-        mockMvc.perform(get("/category/listAllByProduct/5"))
+        mockMvc.perform(get("/categories/product/5"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)))
                 .andExpect(jsonPath("$[0].id", is(2)))
@@ -68,13 +68,13 @@ public class CategoryControllerTest {
 
     @Test
     public void givenInvalidRequest_whenListAllByProduct_thenStatusIsNotFound() throws Exception {
-        mockMvc.perform(get("/category/listAllByProduct/-5"))
+        mockMvc.perform(get("/categories/product/-5"))
                 .andExpect(status().isNotFound());
     }
 
     @Test
     public void givenRequest_whenListAllProducts_thenExpectEquals() throws Exception {
-        mockMvc.perform(get("/category/1/listAllProducts"))
+        mockMvc.perform(get("/categories/1/products"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)))
                 .andExpect(jsonPath("$[0].id", is(1)))
@@ -85,13 +85,13 @@ public class CategoryControllerTest {
 
     @Test
     public void givenInvalidRequest_whenListAllProducts_thenStatusIsNoContent() throws Exception {
-        mockMvc.perform(get("/category/-1/listAllProducts"))
+        mockMvc.perform(get("/categories/-1/products"))
                 .andExpect(status().isNoContent());
     }
 
     @Test
     public void givenRequest_whenWithPattern_thenExpectEquals() throws Exception {
-        mockMvc.perform(get("/category/withPattern/e"))
+        mockMvc.perform(get("/categories/pattern/e"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(4)))
                 .andExpect(jsonPath("$.name", is("Queima de estoque")));
@@ -99,7 +99,7 @@ public class CategoryControllerTest {
 
     @Test
     public void givenInvalidRequest_whenWithPattern_thenStatusIsNoContent() throws Exception {
-        mockMvc.perform(get("/category/withPattern/z"))
+        mockMvc.perform(get("/categories/pattern/z"))
                 .andExpect(status().isNoContent());
     }
 }

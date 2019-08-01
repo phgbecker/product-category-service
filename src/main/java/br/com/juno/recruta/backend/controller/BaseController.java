@@ -20,20 +20,7 @@ public abstract class BaseController<T extends BaseEntity> {
         this.service = service;
     }
 
-    @GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<T> id(@PathVariable Long id) {
-        return Optional.of(
-                service.findById(id)
-        ).filter(
-                isPresent
-        ).map(
-                response -> ResponseEntity.ok(response.get())
-        ).orElse(
-                ResponseEntity.notFound().build()
-        );
-    }
-
-    @GetMapping(value = "/listAll", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<T>> listAll() {
         return Optional.of(
                 service.findAll()
@@ -46,7 +33,20 @@ public abstract class BaseController<T extends BaseEntity> {
         );
     }
 
-    @GetMapping(value = "/withPattern/{pattern}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<T> id(@PathVariable Long id) {
+        return Optional.of(
+                service.findById(id)
+        ).filter(
+                isPresent
+        ).map(
+                response -> ResponseEntity.ok(response.get())
+        ).orElse(
+                ResponseEntity.notFound().build()
+        );
+    }
+
+    @GetMapping(value = "/pattern/{pattern}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<T> withPattern(@PathVariable String pattern) {
         return Optional.of(
                 service.findWithPattern(pattern)

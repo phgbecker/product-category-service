@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping(value = "/product", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/products", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProductController extends BaseController<Product> {
     private final ProductService productService;
 
@@ -32,7 +32,7 @@ public class ProductController extends BaseController<Product> {
      * @param id Category
      * @return List of products
      */
-    @GetMapping(value = "/listAllByCategory/{id}")
+    @GetMapping(value = "/category/{id}")
     public ResponseEntity<List<Product>> listAllByCategory(@PathVariable Long id) {
         return Optional.of(
                 productService.findByCategory(id)
@@ -52,7 +52,7 @@ public class ProductController extends BaseController<Product> {
      * @param id Product
      * @return List of categories
      */
-    @GetMapping("{id}/listAllCategories")
+    @GetMapping("{id}/categories")
     public ResponseEntity<List<Category>> listAllCategories(@PathVariable Long id) {
         return Optional.of(
                 productService.findById(id)
